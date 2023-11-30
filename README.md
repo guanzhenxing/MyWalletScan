@@ -1,6 +1,6 @@
 # MyWalletScan  
 
-> 基于https://github.com/wxtsky/MyWalletScan 修改
+> 基于[https://github.com/wxtsky/MyWalletScan](https://github.com/luoyeETH/MyWalletScan) 修改
 
 ## 关于
 
@@ -15,6 +15,12 @@ npm i
 npm run dev
 ```
 
+2. 编译：
+```bash
+npm i
+npm run build
+```
+
 ### 说明
 
 ```
@@ -27,7 +33,6 @@ npm run dev
 
 ## 使用
 
-https://airdrop.dddd8.xyz/
 
 
 
