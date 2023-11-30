@@ -6,14 +6,14 @@ const MyFooter = () => {
         <>
             <Button
                 type="link"
-                href="https://twitter.com/jingluo0"
+                href="https://twitter.com/im0x0y0x0"
                 target="_blank"
                 icon={<TwitterOutlined/>}
                 size={"middle"}
             />
             <Button
                 type="link"
-                href="https://github.com/wxtsky/MyWalletScan"
+                href="https://github.com/guanzhenxing/MyWalletScan"
                 target="_blank"
                 icon={<GithubOutlined/>}
                 size={"middle"}

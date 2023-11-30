@@ -8,7 +8,7 @@ const {Content} = Layout;
 const {Title, Text} = Typography;
 
 const Coffee = () => {
-    const ethAddress = "0x88888A8b367cCE8C82C451f37511905c3028ed49";
+    const ethAddress = "0xcc6D7609dFD70b0e7478ea9f15fAC80a801741D1";
 
     const contentStyle = {
         display: 'flex',

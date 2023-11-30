@@ -6,20 +6,20 @@ import './index.css'
 import {getEthPrice} from "@utils";
 
 const EthPrice = () => {
-    const [ethPrice, setEthPrice] = useState(null);
+    const [ethUsdPrice, setEthPrice] = useState(null);
     useEffect(() => {
         const fetchPrice = async () => {
             const price = await getEthPrice();
             setEthPrice(price);
         };
         fetchPrice();
-        const interval = setInterval(fetchPrice, 10000);
+        const interval = setInterval(fetchPrice, 60000);
         return () => clearInterval(interval);
     }, []);
-    if (ethPrice === null) {
+    if (ethUsdPrice === null) {
         return <div>Loading ETH Price...</div>;
     }
-    return <div>ETH Price: ${ethPrice}</div>
+    return <div>ETH Price: ${ethUsdPrice}</div>
 }
 const MenuHeader = () => {
     const items = [
@@ -96,27 +96,35 @@ const MenuHeader = () => {
             key: 'layer',
         },
         {
-            label: 'Mirror',
-            key: 'mirror',
-        },
-        {
             label: 'Deposit',
             key: 'deposit',
         },
-        // {
-        //     label: 'Coffee',
-        //     key: 'coffee',
-        // },
+
         {
-            label: <a href="https://github.com/luoyeETH/MyWalletScan" target="_blank"
+            label: <span>Defi看板 <CaretDownOutlined /></span>,
+            key: 'Dashboards',
+            children: [
+                // {
+                //     label: 'Mirror',
+                //     key: 'mirror',
+                // },
+                {
+                    label: <a href="https://defillama.com/" target="_blank"
+                      rel="noopener noreferrer">DefiLlama</a>,
+                    key: 'defillama',
+                },
+                {
+                    label: <a href="https://dune.com/browse/dashboards/" target="_blank"
+                      rel="noopener noreferrer">Dune</a>,
+                    key: 'dune',
+                }
+            ],
+        },
+        {
+            label: <a href="https://github.com/guanzhenxing/MyWalletScan" target="_blank"
                       rel="noopener noreferrer"><GithubOutlined/></a>,
             key: 'github',
         },
-        // {
-        //     label: <a href="https://twitter.com/jingluo0" target="_blank"
-        //               rel="noopener noreferrer"><TwitterOutlined/></a>,
-        //     key: 'twitter',
-        // },
         {
             label: <EthPrice/>,
             key: 'ethPrice',

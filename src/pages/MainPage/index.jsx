@@ -69,7 +69,7 @@ function MainPage() {
                         {location.pathname === "/scroll" && <Scroll/>}
                         {location.pathname === "/layer" && <Layer/>}
                         {location.pathname === "/mirror" && <Mirror/>}
-                        {/* {location.pathname === "/coffee" && <Coffee/>} */}
+                        {location.pathname === "/coffee" && <Coffee/>}
                         {location.pathname === "/deposit" && <Deposit/>}
                         {location.pathname === "/overview" && <Overview/>}
                     </div>

@@ -44,11 +44,19 @@ async function getLayerData(address, apiKeyData) {
             let tx = 0;
             address = address.toLowerCase();
             let url;
-            if (k === null) {
-                url = `${u}/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10000&sort=asc`;
-            } else {
-                url = `${u}/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10000&sort=asc&apikey=${k}`;
+
+            // avax的是其他的URL
+            if(net === 'avax'){
+                url = `https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc`;
+            }else{
+                if (k === null) {
+                    url = `${u}/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10000&sort=asc`;
+                } else {
+                    url = `${u}/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&page=1&offset=10000&sort=asc&apikey=${k}`;
+                }
             }
+
+            
             const res = await axios.get(url);
             for (let i = 0; i < res.data.result.length; i++) {
                 const methodId = res.data.result[i].input.slice(0, 10);

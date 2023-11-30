@@ -392,72 +392,72 @@ const Layer = () => {
                 return (text === null ? <Spin/> : text)
                 },
                 align: 'center',
+        },
+        {
+            title: 'OP',
+            dataIndex: 'op',
+            key: 'op',
+            width: 80,
+            render: (text, record) => {
+                return (text === null ? <Spin/> : text)
             },
-            {
-                title: 'OP',
-                dataIndex: 'op',
-                key: 'op',
-                width: 80,
-                render: (text, record) => {
-                    return (text === null ? <Spin/> : text)
-                },
-                align: 'center',
+            align: 'center',
+        },
+        {
+            title: 'AVAX',
+            dataIndex: 'avax',
+            key: 'avax',
+            width: 80,
+            render: (text, record) => {
+                return (text === null ? <Spin/> : text)
             },
-            {
-                title: 'AVAX',
-                dataIndex: 'avax',
-                key: 'avax',
-                width: 80,
-                render: (text, record) => {
-                    return (text === null ? <Spin/> : text)
-                },
-                align: 'center',
+            align: 'center',
+        },
+        {
+            title: 'FTM',
+            dataIndex: 'ftm',
+            key: 'ftm',
+            width: 80,
+            render: (text, record) => {
+                return (text === null ? <Spin/> : text)
             },
-            {
-                title: 'FTM',
-                dataIndex: 'ftm',
-                key: 'ftm',
-                width: 80,
-                render: (text, record) => {
-                    return (text === null ? <Spin/> : text)
-                },
-                align: 'center',
+            align: 'center',
+        },
+        {
+            title: 'METIS',
+            dataIndex: 'metis',
+            key: 'metis',
+            width: 80,
+            render: (text, record) => {
+                return (text === null ? <Spin/> : text)
             },
-            {
-                title: 'METIS',
-                dataIndex: 'metis',
-                key: 'metis',
-                width: 80,
-                render: (text, record) => {
-                    return (text === null ? <Spin/> : text)
-                },
-                align: 'center',
+            align: 'center',
+        },
+        {
+            title: "总Tx",
+            dataIndex: "total",
+            key: "total",
+            width: 80,
+            render: (text, record) => {
+                return (text === null ? <Spin/> : text)
             },
-            {
-                title: "总Tx",
-                dataIndex: "total",
-                key: "total",
-                width: 80,
-                render: (text, record) => {
-                    return (text === null ? <Spin/> : text)
-                },
-                align: "center"
+            align: "center"
+        },
+        {
+            title: "操作",
+            key: "action",
+            width: 80,
+            render: (text, record) => {
+                return (
+                    <Space size="small">
+                        <Popconfirm title={"确定删除吗？"} onConfirm={() => handleDelete(record.key)}>
+                            <Button icon={<DeleteOutlined/>}/>
+                        </Popconfirm>
+                    </Space>
+                )
             },
-            {
-                title: "操作",
-                key: "action",
-                width: 80,
-                render: (text, record) => {
-                    return (
-                        <Space size="small">
-                            <Popconfirm title={"确定删除吗？"} onConfirm={() => handleDelete(record.key)}>
-                                <Button icon={<DeleteOutlined/>}/>
-                            </Popconfirm>
-                        </Space>
-                    )
-                },
-                align: 'center',
-            }
+            align: 'center',
+        }
         ]
     ;
     useEffect(() => {
@@ -574,9 +574,6 @@ const Layer = () => {
                         </Form.Item>
                     </Form>
                 </Modal>
-                <Tag color="blue" style={{marginBottom: "10px"}}>
-                    获取数据使用的是作者的区块链浏览器API Key，用的人多可能会有卡顿报错的情况，如果有需要请自行更换API Key
-                </Tag>
                 <Spin spinning={tableLoading}>
                     <Table
                         columns={columns}
