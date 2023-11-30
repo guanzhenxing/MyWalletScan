@@ -13,55 +13,6 @@ const Overview = () => {
     const [commitMessage, setCommitMessage] = useState('');
 
     useEffect(() => {
-        // Function to fetch the latest version from GitHub API
-        const fetchLatestVersion = () => {
-          const url = "https://api.github.com/repos/luoyeETH/MyWalletScan/commits?per_page=1";
-          fetch(url)
-            .then(res => res.json())
-            .then(res => {
-              const version = res[0].sha;
-              const message = res[0].commit.message;
-              setLatestVersion(version);
-              setCommitMessage(message);
-            })
-            .catch(error => {
-              console.error('Error fetching latest version:', error);
-            });
-        };
-    
-        // Fetch the latest version on component mount
-        fetchLatestVersion();
-    
-        // Schedule fetching the latest version every 10 mins
-        const interval = setInterval(fetchLatestVersion, 600000);
-    
-        // Clean up the interval on component unmount
-        return () => clearInterval(interval);
-      }, []);
-    
-      // Function to compare the latest version with the locally stored version
-      const checkVersion = () => {
-        const locallyStoredVersion = localStorage.getItem('version');
-        if (locallyStoredVersion && latestVersion && locallyStoredVersion !== latestVersion) {
-          // Perform actions when a new version is available
-          notification.info({
-              message: '检查到页面有新的版本! 请刷新',
-              description: (
-                  <div>
-                      {commitMessage}
-                      <br />
-                      {locallyStoredVersion.substring(0, 7)} -{'>'} {latestVersion.substring(0, 7)}
-                  </div>
-              ),
-              duration: 0,
-          });
-          localStorage.setItem('version', latestVersion);
-        }
-      };
-    
-    useEffect(checkVersion, [latestVersion]);
-
-    useEffect(() => {
         const fetchEthPrice = async () => {
             const ethPrice = await getEthPrice();
             setEthPrice(ethPrice);
