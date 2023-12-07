@@ -58,31 +58,43 @@ function ZksyncTasks() {
     const [tableHeight, setTableHeight] = useState(0);
     const [hideColumn, setHideColumn] = useState(false);
 
-    const syncSwapContract = "0x2da10a1e27bf85cedd8ffb1abbe97e53391c0295";
-    const muteContract = "0x8B791913eB07C32779a16750e3868aA8495F5964";
-    const okxSwapContract = "0xb9061E38FeE7d30134F56aEf7117E2F6d1580666";
-    const spacefiContract = "0xbE7D1FD1f6748bbDefC4fbaCafBb11C6Fc506d1d";
-    const _1inchContract = "0x6e2B76966cbD9cF4cC2Fa0D76d24d5241E0ABC2F";
-    const izumiContract = "0x9606eC131EeC0F84c95D82c9a63959F2331cF2aC";
-    const izumiContract2 = "0x943ac2310D9BC703d6AB5e5e76876e212100f894";
-    const rollupContract = "0x5B91962F5ECa75E6558E4d32Df69B30f75cc6FE5";
+    const dmailContract = "0x981F198286E40F9979274E0876636E9144B8FB8E";
+    const nameserviceContract = "xxx";
     const znsContract = "0xCBE2093030F485adAaf5b61deb4D9cA8ADEAE509";
-    const veloContract = "0xd999E16e68476bC749A28FC14a0c3b6d7073F50c";
-    const veloContract2 = "0xf5E67261CB357eDb6C7719fEFAFaaB280cB5E2A6";
+    const rollupContract = "0x5B91962F5ECa75E6558E4d32Df69B30f75cc6FE5";
+    const zkswapContract = "0x18381c0f738146Fb694DE18D1106BdE2BE040Fa4";
+    const openoceanContract = "0x36A1aCbbCAfca2468b85011DDD16E7Cb4d673230";
+    const pancakeContract = "0xf8b59f3c3Ab33200ec80a8A58b2aA5F5D2a8944C";
     const ReactorFusionContract = "0xC5db68F30D21cBe0C9Eac7BE5eA83468d69297e6";
     const ReactorFusionContract2 = "0x04e9Db37d8EA0760072e1aCE3F2A219988Fdac29";
-    const eraLendContract = "0x1BbD33384869b30A323e15868Ce46013C82B86FB";
-    const eraLendContract2 = "0x1181D7BE04D80A8aE096641Ee1A87f7D557c6aeb";
+    const veloContract = "0xd999E16e68476bC749A28FC14a0c3b6d7073F50c";
+    const veloContract2 = "0xf5E67261CB357eDb6C7719fEFAFaaB280cB5E2A6";
     const mavContract = "0x39e098a153ad69834a9dac32f0fca92066ad03f4";
     const veSyncContract = "0x6C31035D62541ceba2Ac587ea09891d1645D6D07";
-    const overNightContract = "0x84d05333f1F5Bf1358c3f63A113B1953C427925D";
-    const overNightContract2 = "0xA269031037B4D5fa3F771c401D19E57def6Cb491";
-    const openoceanContract = "0x36A1aCbbCAfca2468b85011DDD16E7Cb4d673230";
-    const ezkContract = "0x498f7bB59c61307De7dEA005877220e4406470e9";
-    const odosContract = "0xA269031037B4D5fa3F771c401D19E57def6Cb491";
-    const odosContract2 = "0x4bBa932E9792A2b917D47830C93a9BC79320E4f7";
-    const dmailContract = "0x981F198286E40F9979274E0876636E9144B8FB8E";
-    const pancakeContract = "0xf8b59f3c3Ab33200ec80a8A58b2aA5F5D2a8944C";
+    const izumiContract = "0x9606eC131EeC0F84c95D82c9a63959F2331cF2aC";
+    const izumiContract2 = "0x943ac2310D9BC703d6AB5e5e76876e212100f894";
+    const _1inchContract = "0x6e2B76966cbD9cF4cC2Fa0D76d24d5241E0ABC2F";
+    const spacefiContract = "0xbE7D1FD1f6748bbDefC4fbaCafBb11C6Fc506d1d";
+    const muteContract = "0x8B791913eB07C32779a16750e3868aA8495F5964";
+    const syncSwapContract = "0x2da10a1e27bf85cedd8ffb1abbe97e53391c0295";
+    const okxSwapContract = "0xb9061E38FeE7d30134F56aEf7117E2F6d1580666";
+    const basiliskContract = "0x1e8F1099a3fe6D2c1A960528394F4fEB8f8A288D";
+    const basiliskContract2 = "0x01541EaD71e41d59f315eB2cE3a9441eD7b0A63E";
+    const zerolendContract = "xxx";
+
+    const eraLendContract = "0x1BbD33384869b30A323e15868Ce46013C82B86FB";
+    const eraLendContract2 = "0x1181D7BE04D80A8aE096641Ee1A87f7D557c6aeb";
+    const eraLendContrac3 = "0x90973213E2a230227BD7CCAfB30391F4a52439ee";
+    const eraLendContract4 = "0x22D8b71599e14F20a49a397b88c1C878c86F5579";
+
+    
+    // const overNightContract = "0x84d05333f1F5Bf1358c3f63A113B1953C427925D";
+    // const overNightContract2 = "0xA269031037B4D5fa3F771c401D19E57def6Cb491";
+    // const ezkContract = "0x498f7bB59c61307De7dEA005877220e4406470e9";
+    // const odosContract = "0xA269031037B4D5fa3F771c401D19E57def6Cb491";
+    // const odosContract2 = "0x4bBa932E9792A2b917D47830C93a9BC79320E4f7";
+
+    
 
     const toggleHideColumn = () => {
         setHideColumn(!hideColumn);
@@ -102,51 +114,15 @@ function ZksyncTasks() {
             for (let item of newData) {
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, syncSwapContract);
-                        item.sync = result;
+                        const result = checkTaskStatus(item.address, dmailContract);
+                        item.dmail = result;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const isMute = checkTaskStatus(item.address, muteContract);
-                        item.mute = isMute;
-                        resolve();
-                    });
-                });
-                promisesQueue.push(() => {
-                    return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, okxSwapContract);
-                        item.okx = result;
-                        resolve();
-                    });
-                });
-                promisesQueue.push(() => {
-                    return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, spacefiContract);
-                        item.spacefi = result;
-                        resolve();
-                    });
-                });
-                promisesQueue.push(() => {
-                    return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, _1inchContract);
-                        item._1inch = result;
-                        resolve();
-                    });
-                });
-                promisesQueue.push(() => {
-                    return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, izumiContract);
-                        const result2 = checkTaskStatus(item.address, izumiContract2);
-                        item.izumi = result + result2;
-                        resolve();
-                    });
-                });
-                promisesQueue.push(() => {
-                    return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, rollupContract);
-                        item.rollup = result;
+                        const result = checkTaskStatus(item.address, nameserviceContract);
+                        item.nameservice = result;
                         resolve();
                     });
                 });
@@ -159,25 +135,45 @@ function ZksyncTasks() {
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, veloContract);
-                        const result2 = checkTaskStatus(item.address, veloContract2);
-                        item.velo = result + result2;
+                        const result = checkTaskStatus(item.address, rollupContract);
+                        item.rollup = result;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, ReactorFusionContract);
+                        const result = checkTaskStatus(item.address, zkswapContract);
+                        item.zkswap = result;
+                        resolve();
+                    });
+                });
+                promisesQueue.push(() => {
+                    return new Promise((resolve) => {
+                        const result = checkTaskStatus(item.address, openoceanContract);
+                        item.openocean = result;
+                        resolve();
+                    });
+                });
+                promisesQueue.push(() => {
+                    return new Promise((resolve) => {
+                        const result = checkTaskStatus(item.address, pancakeContract);
+                        item.pancake = result;
+                        resolve();
+                    });
+                });
+                promisesQueue.push(() => {
+                    return new Promise((resolve) => {
+                        const result1 = checkTaskStatus(item.address, ReactorFusionContract);
                         const result2 = checkTaskStatus(item.address, ReactorFusionContract2);
-                        item.rf = result + result2;
+                        item.rf = result1+result2;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, eraLendContract);
-                        const result2 = checkTaskStatus(item.address, eraLendContract2);
-                        item.eralend = result + result2;
+                        const result1 = checkTaskStatus(item.address, veloContract);
+                        const result2 = checkTaskStatus(item.address, veloContract2);
+                        item.velo = result1+result2;
                         resolve();
                     });
                 });
@@ -197,47 +193,73 @@ function ZksyncTasks() {
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, overNightContract) + checkTaskStatus(item.address, overNightContract2);
-                        item.usdp = result;
+                        const result1 = checkTaskStatus(item.address, izumiContract);
+                        const result2 = checkTaskStatus(item.address, izumiContract2);
+                        item.izumi = result1+result2;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, openoceanContract);
-                        item.ooe = result;
+                        const result = checkTaskStatus(item.address, _1inchContract);
+                        item._1inch = result;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, ezkContract);
-                        item.ezk = result;
+                        const result = checkTaskStatus(item.address, spacefiContract);
+                        item.spacefi = result;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, odosContract);
-                        const result2 = checkTaskStatus(item.address, odosContract2);
-                        item.odos = result + result2;
+                        const result = checkTaskStatus(item.address, muteContract);
+                        item.mute = result;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, dmailContract);
-                        item.dmail = result;
+                        const result = checkTaskStatus(item.address, syncSwapContract);
+                        item.sync = result;
                         resolve();
                     });
                 });
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
-                        const result = checkTaskStatus(item.address, pancakeContract);
-                        item.pancake = result;
+                        const result = checkTaskStatus(item.address, okxSwapContract);
+                        item.okx = result;
                         resolve();
                     });
                 });
+                promisesQueue.push(() => {
+                    return new Promise((resolve) => {
+                        const result = checkTaskStatus(item.address, basiliskContract);
+                        const result2 = checkTaskStatus(item.address, basiliskContract2);
+                        item.basilisk = result + result2;
+                        resolve();
+                    });
+                });
+                promisesQueue.push(() => {
+                    return new Promise((resolve) => {
+                        const result = checkTaskStatus(item.address, zerolendContract);
+                        item.zerolend = result;
+                        resolve();
+                    });
+                });
+                promisesQueue.push(() => {
+                    return new Promise((resolve) => {
+                        const result = checkTaskStatus(item.address, eraLendContract);
+                        const result2 = checkTaskStatus(item.address, eraLendContract2);
+                        const result3 = checkTaskStatus(item.address, eraLendContract3);
+                        const result4 = checkTaskStatus(item.address, eraLendContract4);
+                        item.eralend = result+result2+result3+result4;
+                        resolve();
+                    });
+                });
+                
             }
             await Promise.all(promisesQueue.map((promise) => promise()));
             setTaskData([...newData]);
@@ -277,144 +299,148 @@ function ZksyncTasks() {
                     });
                     promisesQueue.push(() => {
                         return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, syncSwapContract);
-                            item.sync = result;
-                            resolve();
-                        });
-                    });
-
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, muteContract);
-                            item.mute = result;
-                            resolve();
-                        });
-                    });
-
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, okxSwapContract);
-                            item.okx = result;
-                            resolve();
-                        });
-                    });
-
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, spacefiContract);
-                            item.spacefi = result;
-                            resolve();
-                        });
-                    });
-
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, _1inchContract);
-                            item._1inch = result;
-                            resolve();
-                        });
-                    });
-
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, izumiContract);
-                            const result2 = checkTaskStatusByArray(contractAddresses, izumiContract2);
-                            item.izumi = result + result2;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, rollupContract);
-                            item.rollup = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, znsContract);
-                            item.zns = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, veloContract);
-                            const result2 = checkTaskStatusByArray(contractAddresses, veloContract2);
-                            item.velo = result + result2;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, ReactorFusionContract);
-                            const result2 = checkTaskStatusByArray(contractAddresses, ReactorFusionContract2);
-                            item.rf = result + result2;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, eraLendContract);
-                            const result2 = checkTaskStatusByArray(contractAddresses, eraLendContract2);
-                            item.eralend = result + result2;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, mavContract);
-                            item.mav = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, veSyncContract);
-                            item.veSync = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, overNightContract) + checkTaskStatusByArray(contractAddresses, overNightContract2);
-                            item.usdp = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, openoceanContract);
-                            item.ooe = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, ezkContract);
-                            item.ezk = result;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, odosContract);
-                            const result2 = checkTaskStatusByArray(contractAddresses, odosContract2);
-                            item.odos = result + result2;
-                            resolve();
-                        });
-                    });
-                    promisesQueue.push(() => {
-                        return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, dmailContract);
+                            const result = checkTaskStatusByArray(item.address, dmailContract);
                             item.dmail = result;
                             resolve();
                         });
                     });
                     promisesQueue.push(() => {
                         return new Promise((resolve) => {
-                            const result = checkTaskStatusByArray(contractAddresses, pancakeContract);
+                            const result = checkTaskStatusByArray(item.address, nameserviceContract);
+                            item.nameservice = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, znsContract);
+                            item.zns = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, rollupContract);
+                            item.rollup = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, zkswapContract);
+                            item.zkswap = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, openoceanContract);
+                            item.openocean = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, pancakeContract);
                             item.pancake = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result1 = checkTaskStatusByArray(item.address, ReactorFusionContract);
+                            const result2 = checkTaskStatusByArray(item.address, ReactorFusionContract2);
+                            item.rf = result1+result2;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result1 = checkTaskStatusByArray(item.address, veloContract);
+                            const result2 = checkTaskStatusByArray(item.address, veloContract2);
+                            item.velo = result1+result2;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, mavContract);
+                            item.mav = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, veSyncContract);
+                            item.veSync = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result1 = checkTaskStatusByArray(item.address, izumiContract);
+                            const result2 = checkTaskStatusByArray(item.address, izumiContract2);
+                            item.izumi = result1+result2;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, _1inchContract);
+                            item._1inch = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, spacefiContract);
+                            item.spacefi = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, muteContract);
+                            item.mute = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, syncSwapContract);
+                            item.sync = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, okxSwapContract);
+                            item.okx = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, basiliskContract);
+                            const result2 = checkTaskStatusByArray(item.address, basiliskContract2);
+                            item.basilisk = result+result2;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, zerolendContract);
+                            item.zerolend = result;
+                            resolve();
+                        });
+                    });
+                    promisesQueue.push(() => {
+                        return new Promise((resolve) => {
+                            const result = checkTaskStatusByArray(item.address, eraLendContract);
+                            const result2 = checkTaskStatusByArray(item.address, eraLendContract2);
+                            const result3 = checkTaskStatusByArray(item.address, eraLendContract2);
+                            const result4 = checkTaskStatusByArray(item.address, eraLendContract2);
+                            item.eralend = result+result2+result3+result4;
                             resolve();
                         });
                     });
@@ -632,24 +658,49 @@ function ZksyncTasks() {
                   </a>
                 );
               },
-            width: 55
+            width: 80
         },
         {
+            title: '进度',
+            dataIndex: 'progress',
+            key: 'progress',
+            align: 'center',
+            sorter: (a, b) => a.progress - b.progress,
+            render: (text, record) => {
+              const items = ['dmail', 'nameservice', 'zns', 'rollup', 'zkswap', 'openocean', 'pancake', 'rf', 
+              'velo', 'mav', 'veSync', 'izumi', '_1inch', 'spacefi', 'mute', 'sync', 'okx', 'basilisk', 'zerolend', 'eralend']; 
+              const count = items.reduce((total, item) => {
+                if (record[item] > 0) {
+                  return total + 1;
+                }
+                return total;
+              }, 0);
+              const percentage = (count / items.length) * 100;
+              record.progress = percentage;
+        
+              const backgroundColor = `rgba(240, 121, 78, ${percentage / 100})`;
+        
+              return {
+                children: <span>{text === null ? <Spin /> : `${percentage.toFixed(2)}%`}</span>,
+                props: {
+                  style: {
+                    background: backgroundColor,
+                  },
+                },
+              };
+            },
+            width: 60,
+          },
+        {
             title: <a href="https://defillama.com/chain/zkSync Era" style={{ color: 'white' }} 
-                target="_blank" rel="noopener noreferrer">zkSyncEra Task List  [参考defillama TVL数据] <br/>🔴请注意，通过点击任务列表的超链接，您将离开本网页。我们建议您在访问这些外部链接之前，仔细阅读其网站的隐私政策和使用条款。我们不能控制这些网站的内容和安全性，并且不对其造成的任何损失或损害负责。
-
-                在访问外部链接时，您需要自行评估潜在的风险。这些链接不构成对所链接网站内容的认可或支持。我们不对这些外部链接的准确性、内容、服务质量或安全性做任何承诺。
-                
-                我们建议您保持您的计算机和设备的安全性，使用防病毒软件和防火墙，并时刻注意潜在的网络钓鱼或恶意软件攻击。
-                
-                通过继续使用本网页并访问其中的超链接，您同意承担访问外部链接可能带来的一切风险。我们不对由此导致的任何损失或损害负责！</a>,
+                target="_blank" rel="noopener noreferrer">zkSyncEra Task List  [参考defillama TVL数据] <br/></a>,
             key: "zks_era_group",
             className: "zks_era",
             children: [
                 {
-                    title: <a href="https://syncswap.xyz" target="_blank" rel="noopener noreferrer">Sync</a>,
-                    dataIndex: "sync",
-                    key: "sync",
+                    title: <a href="https://app.eralend.com/" target="_blank" rel="noopener noreferrer">EraLend</a>,
+                    dataIndex: "eralend",
+                    key: "eralend",
                     align: "center",
                     filters: [
                         {
@@ -657,18 +708,18 @@ function ZksyncTasks() {
                           value: 0,
                         }
                     ],
-                    onFilter: (value, record) => record.sync === value,
+                    onFilter: (value, record) => record.eralend === value,
                     render: (text, record) => (
                         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
-                    title: <a href="https://app.mute.io/swap" target="_blank" rel="noopener noreferrer">Mute</a>,
-                    dataIndex: "mute",
-                    key: "mute",
+                    title: <a href="https://app.zerolend.xyz/markets/" target="_blank" rel="noopener noreferrer">ZeroLend</a>,
+                    dataIndex: "zerolend",
+                    key: "zerolend",
                     align: "center",
                     filters: [
                         {
@@ -676,13 +727,32 @@ function ZksyncTasks() {
                           value: 0,
                         }
                     ],
-                    onFilter: (value, record) => record.mute === value,
+                    onFilter: (value, record) => record.zerolend === value,
                     render: (text, record) => (
                         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
+                },
+                {
+                    title: <a href="https://app.basilisk.org/" target="_blank" rel="noopener noreferrer">basilisk</a>,
+                    dataIndex: "basilisk",
+                    key: "basilisk",
+                    align: "center",
+                    filters: [
+                        {
+                          text: '未完成',
+                          value: 0,
+                        }
+                    ],
+                    onFilter: (value, record) => record.basilisk === value,
+                    render: (text, record) => (
+                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                            {text === null ? <Spin /> : text}
+                        </span>
+                    ),
+                    width: 100
                 },
                 {
                     title: <a href="https://www.okx.com/cn/web3/dex" target="_blank" rel="noopener noreferrer">OKX</a>,
@@ -701,10 +771,48 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
-                    title: <a href="https://swap-zksync.spacefi.io/#/swap" target="_blank" rel="noopener noreferrer">Spacefi</a>,
+                    title: <a href="https://syncswap.xyz" target="_blank" rel="noopener noreferrer">SyncSwap</a>,
+                    dataIndex: "sync",
+                    key: "sync",
+                    align: "center",
+                    filters: [
+                        {
+                          text: '未完成',
+                          value: 0,
+                        }
+                    ],
+                    onFilter: (value, record) => record.sync === value,
+                    render: (text, record) => (
+                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                            {text === null ? <Spin /> : text}
+                        </span>
+                    ),
+                    width: 100
+                },
+                {
+                    title: <a href="https://app.mute.io/swap" target="_blank" rel="noopener noreferrer">Mute</a>,
+                    dataIndex: "mute",
+                    key: "mute",
+                    align: "center",
+                    filters: [
+                        {
+                          text: '未完成',
+                          value: 0,
+                        }
+                    ],
+                    onFilter: (value, record) => record.mute === value,
+                    render: (text, record) => (
+                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                            {text === null ? <Spin /> : text}
+                        </span>
+                    ),
+                    width: 100
+                },
+                {
+                    title: <a href="https://swap-zksync.spacefi.io/#/swap" target="_blank" rel="noopener noreferrer">SpaceFi</a>,
                     dataIndex: "spacefi",
                     key: "spacefi",
                     align: "center",
@@ -720,7 +828,7 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
                     title: <a href="https://app.1inch.io" target="_blank" rel="noopener noreferrer">1inch</a>,
@@ -739,7 +847,7 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
                     title: <a href="https://izumi.finance/trade/swap" target="_blank" rel="noopener noreferrer">izumi</a>,
@@ -758,7 +866,7 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
                     title: <a href="https://app.vesync.finance/swap" target="_blank" rel="noopener noreferrer">veSync</a>,
@@ -777,20 +885,8 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
-                // {
-                //     title: <a href="https://app.rollup.finance/#/stake" target="_blank" rel="noopener noreferrer">rollup</a>,
-                //     dataIndex: "rollup",
-                //     key: "rollup",
-                //     align: "center",
-                //     render: (text, record) => (
-                //         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
-                //             {text === null ? <Spin /> : text}
-                //         </span>
-                //     ),
-                //     width: 55
-                // },
                 {
                     title: <a href="https://app.mav.xyz/?chain=324" target="_blank" rel="noopener noreferrer">Mav</a>,
                     dataIndex: "mav",
@@ -808,29 +904,10 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
-                    title: <a href="https://zks.network/" target="_blank" rel="noopener noreferrer">zns</a>,
-                    dataIndex: "zns",
-                    key: "zns",
-                    align: "center",
-                    filters: [
-                        {
-                          text: '未完成',
-                          value: 0,
-                        }
-                    ],
-                    onFilter: (value, record) => record.zns === value,
-                    render: (text, record) => (
-                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
-                            {text === null ? <Spin /> : text}
-                        </span>
-                    ),
-                    width: 55
-                },
-                {
-                    title: <a href="https://zksync.velocore.xyz/swap" target="_blank" rel="noopener noreferrer">velo-v2</a>,
+                    title: <a href="https://zksync.velocore.xyz/swap" target="_blank" rel="noopener noreferrer">Velocore</a>,
                     dataIndex: "velo",
                     key: "velo",
                     align: "center",
@@ -846,7 +923,7 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
                     title: <a href="https://app.reactorfusion.xyz/" target="_blank" rel="noopener noreferrer">Reactor</a>,
@@ -865,50 +942,12 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
-                // {
-                //     title: <a href="https://app.eralend.com/" target="_blank" rel="noopener noreferrer">eraLend</a>,
-                //     dataIndex: "eralend",
-                //     key: "eralend",
-                //     align: "center",
-                //     filters: [
-                //         {
-                //           text: '未完成',
-                //           value: 0,
-                //         }
-                //     ],
-                //     onFilter: (value, record) => record.eralend === value,
-                //     render: (text, record) => (
-                //         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
-                //             {text === null ? <Spin /> : text}
-                //         </span>
-                //     ),
-                //     width: 55
-                // },
-                // {
-                //     title: <a href="https://app.overnight.fi/stats?tabName=zksync" target="_blank" rel="noopener noreferrer">USD+</a>,
-                //     dataIndex: "usdp",
-                //     key: "usdp",
-                //     align: "center",
-                //     filters: [
-                //         {
-                //           text: '未完成',
-                //           value: 0,
-                //         }
-                //     ],
-                //     onFilter: (value, record) => record.usdp === value,
-                //     render: (text, record) => (
-                //         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
-                //             {text === null ? <Spin /> : text}
-                //         </span>
-                //     ),
-                //     width: 55
-                // },
                 {
-                    title: <a href="https://app.openocean.finance/CLASSIC#/ZKSYNC/ETH/USDC" target="_blank" rel="noopener noreferrer">OOE</a>,
-                    dataIndex: "ooe",
-                    key: "ooe",
+                    title: <a href="https://pancakeswap.finance/swap?chain=zkSync" target="_blank" rel="noopener noreferrer">PancakeSwap</a>,
+                    dataIndex: "pancake",
+                    key: "pancake",
                     align: "center",
                     filters: [
                         {
@@ -916,18 +955,18 @@ function ZksyncTasks() {
                           value: 0,
                         }
                     ],
-                    onFilter: (value, record) => record.ooe === value,
+                    onFilter: (value, record) => record.pancake === value,
                     render: (text, record) => (
                         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
-                    title: <a href="https://dapp.ezkalibur.com/" target="_blank" rel="noopener noreferrer">eZK</a>,
-                    dataIndex: "ezk",
-                    key: "ezk",
+                    title: <a href="https://app.openocean.finance/CLASSIC#/ZKSYNC/ETH/USDC" target="_blank" rel="noopener noreferrer">OpenOcean</a>,
+                    dataIndex: "openocean",
+                    key: "openocean",
                     align: "center",
                     filters: [
                         {
@@ -935,18 +974,18 @@ function ZksyncTasks() {
                           value: 0,
                         }
                     ],
-                    onFilter: (value, record) => record.ezk === value,
+                    onFilter: (value, record) => record.openocean === value,
                     render: (text, record) => (
                         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
                 {
-                    title: <a href="https://app.odos.xyz/" target="_blank" rel="noopener noreferrer">odos</a>,
-                    dataIndex: "odos",
-                    key: "odos",
+                    title: <a href="https://zkswap.finance/" target="_blank" rel="noopener noreferrer">zkSwap</a>,
+                    dataIndex: "zkswap",
+                    key: "zkswap",
                     align: "center",
                     filters: [
                         {
@@ -954,13 +993,64 @@ function ZksyncTasks() {
                           value: 0,
                         }
                     ],
-                    onFilter: (value, record) => record.odos === value,
+                    onFilter: (value, record) => record.zkswap === value,
                     render: (text, record) => (
                         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
+                },
+                {
+                    title: <a href="https://app.rollup.finance/#/stake" target="_blank" rel="noopener noreferrer">Rollup</a>,
+                    dataIndex: "rollup",
+                    key: "rollup",
+                    align: "center",
+                    onFilter: (value, record) => record.rollup === value,
+                    render: (text, record) => (
+                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                            {text === null ? <Spin /> : text}
+                        </span>
+                    ),
+                    width: 50
+                },
+                {
+                    title: <a href="https://zks.network/" target="_blank" rel="noopener noreferrer">zns</a>,
+                    dataIndex: "zns",
+                    key: "zns",
+                    align: "center",
+                    filters: [
+                        {
+                          text: '未完成',
+                          value: 0,
+                        }
+                    ],
+                    onFilter: (value, record) => record.zns === value,
+                    render: (text, record) => (
+                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                            {text === null ? <Spin /> : text}
+                        </span>
+                    ),
+                    width: 100
+                },
+                {
+                    title: <a href="https://zkns.domains/" target="_blank" rel="noopener noreferrer">NameService</a>,
+                    dataIndex: "nameservice",
+                    key: "nameservice",
+                    align: "center",
+                    filters: [
+                        {
+                          text: '未完成',
+                          value: 0,
+                        }
+                    ],
+                    onFilter: (value, record) => record.zns === value,
+                    render: (text, record) => (
+                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                            {text === null ? <Spin /> : text}
+                        </span>
+                    ),
+                    width: 50
                 },
                 {
                     title: <a href="https://mail.dmail.ai/presale/395788" target="_blank" rel="noopener noreferrer">dmail</a>,
@@ -979,58 +1069,9 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 55
+                    width: 100
                 },
-                {
-                    title: <a href="https://pancakeswap.finance/swap?chain=zkSync" target="_blank" rel="noopener noreferrer">cake</a>,
-                    dataIndex: "pancake",
-                    key: "pancake",
-                    align: "center",
-                    filters: [
-                        {
-                          text: '未完成',
-                          value: 0,
-                        }
-                    ],
-                    onFilter: (value, record) => record.pancake === value,
-                    render: (text, record) => (
-                        <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
-                            {text === null ? <Spin /> : text}
-                        </span>
-                    ),
-                    width: 55
-                },
-                {
-                    title: '进度',
-                    dataIndex: 'progress',
-                    key: 'progress',
-                    align: 'center',
-                    sorter: (a, b) => a.progress - b.progress,
-                    render: (text, record) => {
-                      const items = ['sync', 'mute', 'okx', 'spacefi', '_1inch', 'izumi', 'zns',
-                       'velo', 'rf', 'mav', 'veSync', 'ooe', 'ezk', 'odos', 'dmail', 'pancake']; // 'usdp','eralend',去除
-                      const count = items.reduce((total, item) => {
-                        if (record[item] > 0) {
-                          return total + 1;
-                        }
-                        return total;
-                      }, 0);
-                      const percentage = (count / items.length) * 100;
-                      record.progress = percentage;
                 
-                      const backgroundColor = `rgba(240, 121, 78, ${percentage / 100})`;
-                
-                      return {
-                        children: <span>{text === null ? <Spin /> : `${percentage.toFixed(2)}%`}</span>,
-                        props: {
-                          style: {
-                            background: backgroundColor,
-                          },
-                        },
-                      };
-                    },
-                    width: 60,
-                  },
             ],
         }
     ];
