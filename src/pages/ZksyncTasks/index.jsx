@@ -59,7 +59,7 @@ function ZksyncTasks() {
     const [hideColumn, setHideColumn] = useState(false);
 
     const dmailContract = "0x981F198286E40F9979274E0876636E9144B8FB8E";
-    const nameserviceContract = "xxx";
+    const nameserviceContract = "0xAE23B6E7f91DDeBD3B70d74d20583E3e674Bd94f";
     const znsContract = "0xCBE2093030F485adAaf5b61deb4D9cA8ADEAE509";
     const rollupContract = "0x5B91962F5ECa75E6558E4d32Df69B30f75cc6FE5";
     const zkswapContract = "0x18381c0f738146Fb694DE18D1106BdE2BE040Fa4";
