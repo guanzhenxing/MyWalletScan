@@ -84,7 +84,7 @@ function ZksyncTasks() {
 
     const eraLendContract = "0x1BbD33384869b30A323e15868Ce46013C82B86FB";
     const eraLendContract2 = "0x1181D7BE04D80A8aE096641Ee1A87f7D557c6aeb";
-    const eraLendContrac3 = "0x90973213E2a230227BD7CCAfB30391F4a52439ee";
+    const eraLendContract3 = "0x90973213E2a230227BD7CCAfB30391F4a52439ee";
     const eraLendContract4 = "0x22D8b71599e14F20a49a397b88c1C878c86F5579";
 
     
@@ -438,8 +438,8 @@ function ZksyncTasks() {
                         return new Promise((resolve) => {
                             const result = checkTaskStatusByArray(item.address, eraLendContract);
                             const result2 = checkTaskStatusByArray(item.address, eraLendContract2);
-                            const result3 = checkTaskStatusByArray(item.address, eraLendContract2);
-                            const result4 = checkTaskStatusByArray(item.address, eraLendContract2);
+                            const result3 = checkTaskStatusByArray(item.address, eraLendContract3);
+                            const result4 = checkTaskStatusByArray(item.address, eraLendContract4);
                             item.eralend = result+result2+result3+result4;
                             resolve();
                         });
