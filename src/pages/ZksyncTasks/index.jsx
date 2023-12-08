@@ -62,6 +62,7 @@ function ZksyncTasks() {
     const nameserviceContract = "0xAE23B6E7f91DDeBD3B70d74d20583E3e674Bd94f";
     const znsContract = "0xB235Cea7666d4379ca29e9Ad4ba2787e504192a8";
     const rollupContract = "0x5B91962F5ECa75E6558E4d32Df69B30f75cc6FE5";
+    const rollupContract2 = "0x130E377d507A62C9ECcbd9E7E5Ad2Fd3BE551f48";
     const zkswapContract = "0x18381c0f738146Fb694DE18D1106BdE2BE040Fa4";
     const openoceanContract = "0x36A1aCbbCAfca2468b85011DDD16E7Cb4d673230";
     const pancakeContract = "0xf8b59f3c3Ab33200ec80a8A58b2aA5F5D2a8944C";
@@ -136,7 +137,9 @@ function ZksyncTasks() {
                 promisesQueue.push(() => {
                     return new Promise((resolve) => {
                         const result = checkTaskStatus(item.address, rollupContract);
-                        item.rollup = result;
+                        const result2 = checkTaskStatus(item.address, rollupContract2);
+                        
+                        item.rollup = result+result2;
                         resolve();
                     });
                 });
@@ -321,7 +324,8 @@ function ZksyncTasks() {
                     promisesQueue.push(() => {
                         return new Promise((resolve) => {
                             const result = checkTaskStatusByArray(item.address, rollupContract);
-                            item.rollup = result;
+                            const result2 = checkTaskStatusByArray(item.address, rollupContract2);
+                            item.rollup = result+result2;
                             resolve();
                         });
                     });
