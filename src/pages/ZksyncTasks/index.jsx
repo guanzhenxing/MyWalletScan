@@ -611,7 +611,7 @@ function ZksyncTasks() {
                     </>
                 );
             },
-            width: 70
+            width: 120
         },
         {
             title: (
@@ -631,7 +631,7 @@ function ZksyncTasks() {
                 }
                 return text;
               },
-            width: 150
+            width: 200
         },{
             title: "最后交易",
             dataIndex: "zks2_last_tx",
@@ -1012,7 +1012,7 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 50
+                    width: 100
                 },
                 {
                     title: <a href="https://zks.network/" target="_blank" rel="noopener noreferrer">zns</a>,
@@ -1050,7 +1050,7 @@ function ZksyncTasks() {
                             {text === null ? <Spin /> : text}
                         </span>
                     ),
-                    width: 50
+                    width: 100
                 },
                 {
                     title: <a href="https://mail.dmail.ai/presale/395788" target="_blank" rel="noopener noreferrer">dmail</a>,
