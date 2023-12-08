@@ -80,7 +80,7 @@ function ZksyncTasks() {
     const okxSwapContract = "0xb9061E38FeE7d30134F56aEf7117E2F6d1580666";
     const basiliskContract = "0x1e8F1099a3fe6D2c1A960528394F4fEB8f8A288D";
     const basiliskContract2 = "0x01541EaD71e41d59f315eB2cE3a9441eD7b0A63E";
-    const zerolendContract = "xxx";
+    const zerolendContract = "0x767b4A087c11d7581Ac95eaFfc1FeBFA26bad3d2";
 
     const eraLendContract = "0x1BbD33384869b30A323e15868Ce46013C82B86FB";
     const eraLendContract2 = "0x1181D7BE04D80A8aE096641Ee1A87f7D557c6aeb";
@@ -1006,6 +1006,12 @@ function ZksyncTasks() {
                     dataIndex: "rollup",
                     key: "rollup",
                     align: "center",
+                    filters: [
+                        {
+                          text: '未完成',
+                          value: 0,
+                        }
+                    ],
                     onFilter: (value, record) => record.rollup === value,
                     render: (text, record) => (
                         <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
