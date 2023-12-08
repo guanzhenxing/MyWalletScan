@@ -286,11 +286,15 @@ function ZksyncTasks() {
         try {
           const newData = [...data];
           const promisesQueue = [];
-          
+
             for (let key of selectedKeys) {
                 const index = newData.findIndex(item => item.key === key);
                 if (index !== -1) {
                     const item = newData[index];
+
+                    console.log('...')
+                    console.log(item)
+
                     const taskContractsMap = new Map();
                     const result = await getZksTasks(item.address);
                     const contractAddresses = result[0];
@@ -471,6 +475,7 @@ function ZksyncTasks() {
     const checkTaskStatus = (address, taskContract) => {
         taskContract = taskContract.toLowerCase();
         const contractAddresses = taskContracts.get(address);
+
         if (contractAddresses == undefined) {
             message.info("等待数据加载完成再刷新");
             return "error";
@@ -485,7 +490,10 @@ function ZksyncTasks() {
           return count;
     };
 
-    const checkTaskStatusByArray = (contractAddresses, taskContract) => {
+    const checkTaskStatusByArray = (address, taskContract) => {
+
+        const contractAddresses = taskContracts.get(address);
+
         taskContract = taskContract.toLowerCase();
         const count = contractAddresses.reduce((accumulator, contractAddress) => {
             if (contractAddress === taskContract) {
