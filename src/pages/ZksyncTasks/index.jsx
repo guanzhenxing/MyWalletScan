@@ -60,7 +60,7 @@ function ZksyncTasks() {
 
     const dmailContract = "0x981F198286E40F9979274E0876636E9144B8FB8E";
     const nameserviceContract = "0xAE23B6E7f91DDeBD3B70d74d20583E3e674Bd94f";
-    const znsContract = "0xCBE2093030F485adAaf5b61deb4D9cA8ADEAE509";
+    const znsContract = "0xB235Cea7666d4379ca29e9Ad4ba2787e504192a8";
     const rollupContract = "0x5B91962F5ECa75E6558E4d32Df69B30f75cc6FE5";
     const zkswapContract = "0x18381c0f738146Fb694DE18D1106BdE2BE040Fa4";
     const openoceanContract = "0x36A1aCbbCAfca2468b85011DDD16E7Cb4d673230";
@@ -1015,7 +1015,7 @@ function ZksyncTasks() {
                     width: 100
                 },
                 {
-                    title: <a href="https://zks.network/" target="_blank" rel="noopener noreferrer">zns</a>,
+                    title: <a href="https://zns.is/" target="_blank" rel="noopener noreferrer">zns</a>,
                     dataIndex: "zns",
                     key: "zns",
                     align: "center",
