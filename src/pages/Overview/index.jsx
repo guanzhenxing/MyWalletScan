@@ -918,6 +918,9 @@ const Overview = () => {
     function preprocessData(timeArray) {
         // Create an object to store the counts for each date
         const dateCounts = {};
+        console.log("------")
+        console.log(timeArray)
+        console.log("<------>")
 
         timeArray.forEach((timestamp) => {
             const date = new Date(timestamp);
@@ -929,7 +932,6 @@ const Overview = () => {
                 dateCounts[formattedDate] = 1;
             }
             } catch (error) {
-                console.log(timestamp)
                 console.log(error)
             }
             
