@@ -921,12 +921,18 @@ const Overview = () => {
 
         timeArray.forEach((timestamp) => {
             const date = new Date(timestamp);
-            const formattedDate = date.toISOString().substring(0, 10);
+            try {
+                const formattedDate = date.toISOString().substring(0, 10);
             if (dateCounts[formattedDate]) {
                 dateCounts[formattedDate]++;
             } else {
                 dateCounts[formattedDate] = 1;
             }
+            } catch (error) {
+                console.log(timestamp)
+                console.log(error)
+            }
+            
         });
 
         const data = [];
