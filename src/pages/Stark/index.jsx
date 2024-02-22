@@ -10,7 +10,9 @@ import {
     getStarkBalances,
     getStarkActivity,
     getStarkAmount,
-    getStarkERC20
+    getStarkERC20,
+    getStarkId,
+    getStarkAirdrop,
 } from "@utils"
 import {
     DeleteOutlined,
@@ -220,7 +222,8 @@ const Stark = () => {
                     stark_latest_tx: null,
                     stark_latest_tx_time: null,
                     total_deposit_count: null,
-                    total_widthdraw_count: null
+                    total_widthdraw_count: null,
+                    stark_airdrop: null,
                 };
                 const newData = [...data, newEntry];
                 setData(newData);
@@ -453,8 +456,8 @@ const Stark = () => {
                         stark_latest_tx: null,
                         stark_latest_tx_time: null,
                         total_deposit_count: null,
-                        total_widthdraw_count: null
-
+                        total_widthdraw_count: null,
+                        stark_airdrop: null
                     };
                     newData.push(newEntry);
                     setData(newData);
@@ -581,6 +584,7 @@ const Stark = () => {
                     item.stark_usdc_balance = null;
                     item.stark_usdt_balance = null;
                     item.stark_dai_balance = null;
+                    item.stark_strk_balance = null;
                     item.d_eth_amount = null;
                     item.d_eth_count = null;
                     item.d_usdc_amount = null;
@@ -603,6 +607,7 @@ const Stark = () => {
                     item.w_wbtc_count = null;
                     item.total_widthdraw_count = null;
                     item.total_deposit_count = null;
+                    item.stark_airdrop = null;
                     setData([...newData]);
                     promisesQueue.push(() => {
                         return getStarkTx(item.address).then(({tx, stark_latest_tx_time, stark_timestamps}) => {
@@ -611,6 +616,12 @@ const Stark = () => {
                         timestampsArray.push(stark_timestamps);
                         setData([...newData]);
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
+                    })})
+                    promisesQueue.push(() => {
+                        return getStarkAirdrop(item.address).then(({airdrop}) => {
+                        item.stark_airdrop = airdrop;
+                        setData([...newData]);
+                        localStorage.setItem('stark_addresses', JSON.stringify(newData));
                     })})
                     // promisesQueue.push(() => {
                     //     return getStarkInfo(item.address).then(({wallet_type, deployed_at_timestamp, stark_id}) => {
@@ -631,11 +642,12 @@ const Stark = () => {
                     //     localStorage.setItem('stark_addresses', JSON.stringify(data));
                     // })})
                     promisesQueue.push(() => {
-                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance}) => {
+                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance, strk_balance}) => {
                         item.stark_eth_balance = eth_balance;
                         item.stark_usdc_balance = usdc_balance;
                         item.stark_usdt_balance = usdt_balance;
                         item.stark_dai_balance = dai_balance;
+                        item.stark_strk_balance = strk_balance;
                         setData([...newData]);
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
                     })})
@@ -714,11 +726,16 @@ const Stark = () => {
                         getStarkInfo(item.address).then(({wallet_type, deployed_at_timestamp, stark_id}) => {
                             item.wallet_type = wallet_type;
                             item.create_time = deployed_at_timestamp;
-                            item.stark_id = stark_id;
+                            // item.stark_id = stark_id;
                             setData([...newData]);
                             localStorage.setItem('stark_addresses', JSON.stringify(newData));
                         })
                     }
+                    getStarkId(item.address).then(({stark_id}) => {
+                        item.stark_id = stark_id;
+                        setData([...newData]);
+                        localStorage.setItem('stark_addresses', JSON.stringify(newData));
+                    })
                     getStarkActivity(item.address).then(({dayActivity, weekActivity, monthActivity}) => {
                         item.dayActivity = dayActivity;
                         item.weekActivity = weekActivity;
@@ -780,7 +797,21 @@ const Stark = () => {
                     item.stark_usdc_balance = null;
                     item.stark_usdt_balance = null;
                     item.stark_dai_balance = null;
+                    item.stark_strk_balance = null;
                     setData([...newData]);
+                    
+                    promisesQueue.push(() => {
+                        return getStarkId(item.address).then(({stark_id}) => {
+                        item.stark_id = stark_id;
+                        setData([...newData]);
+                        localStorage.setItem('stark_addresses', JSON.stringify(newData));
+                    })})
+                    promisesQueue.push(() => {
+                        return getStarkAirdrop(item.address).then(({airdrop}) => {
+                        item.stark_airdrop = airdrop;
+                        setData([...newData]);
+                        localStorage.setItem('stark_addresses', JSON.stringify(newData));
+                    })})
                     promisesQueue.push(() => {
                         return getStarkTx(item.address).then(({tx, stark_latest_tx_time, stark_timestamps}) => {
                         item.stark_tx_amount = tx;
@@ -790,11 +821,12 @@ const Stark = () => {
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
                     })})
                     promisesQueue.push(() => {
-                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance}) => {
+                        return getStarkBalances(item.address).then(({eth_balance, usdc_balance, usdt_balance, dai_balance, strk_balance}) => {
                         item.stark_eth_balance = eth_balance;
                         item.stark_usdc_balance = usdc_balance;
                         item.stark_usdt_balance = usdt_balance;
                         item.stark_dai_balance = dai_balance;
+                        item.stark_strk_balance = strk_balance;
                         setData([...newData]);
                         localStorage.setItem('stark_addresses', JSON.stringify(data));
                     })})
@@ -956,7 +988,7 @@ const Stark = () => {
             width: 80,
         },
         {
-            title: "StarkNet   🔴建议减少刷新次数",
+            title: "StarkNet",
             className: "starkNet",
             children: [
                 {
@@ -987,6 +1019,14 @@ const Stark = () => {
                     title: "DAI",
                     dataIndex: "stark_dai_balance",
                     key: "stark_dai_balance",
+                    align: "center",
+                    render: (text, record) => text === null ? <Spin/> : text,
+                    width: 70,
+                },
+                {
+                    title: "STRK",
+                    dataIndex: "stark_strk_balance",
+                    key: "stark_strk_balance",
                     align: "center",
                     render: (text, record) => text === null ? <Spin/> : text,
                     width: 70,
@@ -1096,7 +1136,7 @@ const Stark = () => {
                             width: 60
                         },
                         {
-                            title: "交易金额",
+                            title: "交易金额(不准)",
                             dataIndex: "stark_exchange_amount",
                             key: "stark_exchange_amount",
                             align: "center",
@@ -1136,99 +1176,107 @@ const Stark = () => {
                     ]
                 },
                 {
-                    title: "官方桥Tx数量",
-                    className: "stark_cross_tx",
-                    children: [
-                        {
-                            title: "L1->L2",
-                            dataIndex: "total_deposit_count",
-                            key: "12cross_total_tx",
-                            align: "center",
-                            render: (text, record) => (
-                                <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
-                                    {text === null ? <Spin /> : text}
-                                </span>
-                            ),
-                            width: 60,
+                    title: "空投数量",
+                    key: "stark_airdrop",
+                    dataIndex: "stark_airdrop",
+                    align: "center",
+                    render: (text, record) => text === null ? <Spin/> : text,
+                    width: 100
+                },
+                // {
+                //     title: "官方桥Tx数量",
+                //     className: "stark_cross_tx",
+                //     children: [
+                //         {
+                //             title: "L1->L2",
+                //             dataIndex: "total_deposit_count",
+                //             key: "12cross_total_tx",
+                //             align: "center",
+                //             render: (text, record) => (
+                //                 <span style={{ color: text === 0 ? 'red' : 'inherit' }}>
+                //                     {text === null ? <Spin /> : text}
+                //                 </span>
+                //             ),
+                //             width: 60,
                                 
-                        },
-                        {
-                            title: "L2->L1",
-                            dataIndex: "total_widthdraw_count",
-                            key: "21cross_total_tx",
-                            align: "center",
-                            render: (text, record) => text === null ? <Spin/> : text,
-                            width: 60,
-                        },
-                    ]
-                },
-                {
-                    title: "官方桥跨链额",
-                    className: "stark_cross_amount",
-                    children: [
-                        {
-                            title: "L1->L2",
-                            children: [
-                                {
-                                    title: "ETH",
-                                    dataIndex: "d_eth_amount",
-                                    key: "12cross_eth_amount",
-                                    align: "center",
-                                    render: (text, record) => text === null ? <Spin/> : text,
-                                    width: 60,
-                                },
-                                {
-                                    title: "USDT",
-                                    dataIndex: "d_usdt_amount",
-                                    key: "12cross_usdt_amount",
-                                    align: "center",
-                                    render: (text, record) => text === null ? <Spin/> : text,
-                                    width: 60,
-                                },
-                                {
-                                    title: "USDC",
-                                    dataIndex: "d_usdc_amount",
-                                    key: "12cross_usdc_amount",
-                                    align: "center",
-                                    render: (text, record) => text === null ? <Spin/> : text,
-                                    width: 60,
-                                },
-                            ]
-                        },
-                        {
-                            title: "L2->L1",
-                            className: "cross21",
-                            children: [
-                                {
-                                    title: "ETH",
-                                    dataIndex: "w_eth_amount",
-                                    key: "21cross_eth_amount",
-                                    align: "center",
-                                    render: (text, record) => text === null ? <Spin/> : text,
-                                    width: 60,
-                                },
-                                {
-                                    title: "USDT",
-                                    dataIndex: "w_usdt_amount",
-                                    key: "21cross_usdt_amount",
-                                    align: "center",
-                                    render: (text, record) => text === null ? <Spin/> : text,
-                                    width: 60,
-                                },
-                                {
-                                    title: "USDC",
-                                    dataIndex: "w_usdc_amount",
-                                    key: "21cross_usdc_amount",
-                                    align: "center",
-                                    render: (text, record) => text === null ? <Spin/> : text,
-                                    width: 60,
-                                }
-                            ]
-                        }
+                //         },
+                //         {
+                //             title: "L2->L1",
+                //             dataIndex: "total_widthdraw_count",
+                //             key: "21cross_total_tx",
+                //             align: "center",
+                //             render: (text, record) => text === null ? <Spin/> : text,
+                //             width: 60,
+                //         },
+                //     ]
+                // },
+                // {
+                //     title: "官方桥跨链额",
+                //     className: "stark_cross_amount",
+                //     children: [
+                //         {
+                //             title: "L1->L2",
+                //             children: [
+                //                 {
+                //                     title: "ETH",
+                //                     dataIndex: "d_eth_amount",
+                //                     key: "12cross_eth_amount",
+                //                     align: "center",
+                //                     render: (text, record) => text === null ? <Spin/> : text,
+                //                     width: 60,
+                //                 },
+                //                 {
+                //                     title: "USDT",
+                //                     dataIndex: "d_usdt_amount",
+                //                     key: "12cross_usdt_amount",
+                //                     align: "center",
+                //                     render: (text, record) => text === null ? <Spin/> : text,
+                //                     width: 60,
+                //                 },
+                //                 {
+                //                     title: "USDC",
+                //                     dataIndex: "d_usdc_amount",
+                //                     key: "12cross_usdc_amount",
+                //                     align: "center",
+                //                     render: (text, record) => text === null ? <Spin/> : text,
+                //                     width: 60,
+                //                 },
+                //             ]
+                //         },
+                //         {
+                //             title: "L2->L1",
+                //             className: "cross21",
+                //             children: [
+                //                 {
+                //                     title: "ETH",
+                //                     dataIndex: "w_eth_amount",
+                //                     key: "21cross_eth_amount",
+                //                     align: "center",
+                //                     render: (text, record) => text === null ? <Spin/> : text,
+                //                     width: 60,
+                //                 },
+                //                 {
+                //                     title: "USDT",
+                //                     dataIndex: "w_usdt_amount",
+                //                     key: "21cross_usdt_amount",
+                //                     align: "center",
+                //                     render: (text, record) => text === null ? <Spin/> : text,
+                //                     width: 60,
+                //                 },
+                //                 {
+                //                     title: "USDC",
+                //                     dataIndex: "w_usdc_amount",
+                //                     key: "21cross_usdc_amount",
+                //                     align: "center",
+                //                     render: (text, record) => text === null ? <Spin/> : text,
+                //                     width: 60,
+                //                 }
+                //             ]
+                //         }
 
-                    ]
+                //     ]
 
-                },
+                // },
                 {
                     title: "操作",
                     key: "action",
@@ -1286,7 +1334,8 @@ const Stark = () => {
                 </Modal>
                 <Spin spinning={tableLoading}>
                 <div style={{ width: '100%', margin: "0 auto" }}>
-                    <span className="highlight-text">StarkNet官方已确认完成快照 <a href="https://x.com/StarknetFndn/status/1730532927405003219?s=20">点击查看原文</a></span>
+                    <span className="highlight-text">恭喜各位！StarkNet现已空投，本页面将在七天内下线或移动 <br/>如果这款工具对您有所帮助，并为您带来了额外的价值，那么您的支持将是我们最大的动力。维护和改进这个工具需要不少的时间和精力，您的捐赠将有助于确保我们能够持续提供更好的服务和功能。
+                    <br/>点击<a href="https://airdrop.dddd8.xyz/#/donate">这里</a>对本项目进行捐赠 / 对项目原作者<a href="https://bitboxtools.github.io/#/coffee">捐赠</a>。再次感谢您的支持，祝您使用愉快！  </span>
                 </div>
                     <Table className="grayed-out"
                         rowSelection={rowSelection}
@@ -1304,19 +1353,25 @@ const Stark = () => {
                             let starkUsdcBalance = 0;
                             let starkUsdtBalance = 0;
                             let starkDaiBalance = 0;
+                            let starkStrkBalance = 0;
+                            let totalStarkAirdrop = 0;
                             pageData.forEach(({
                                                   stark_eth_balance,
                                                   stark_usdc_balance,
                                                   stark_usdt_balance,
                                                   stark_dai_balance,
+                                                  stark_strk_balance,
+                                                  stark_airdrop,
                                               }) => {
                                 starkEthBalance += Number(stark_eth_balance);
                                 starkUsdcBalance += Number(stark_usdc_balance);
                                 starkUsdtBalance += Number(stark_usdt_balance);
                                 starkDaiBalance += Number(stark_dai_balance);
+                                starkStrkBalance += Number(stark_strk_balance);
+                                totalStarkAirdrop += Number(stark_airdrop);
                             })
 
-                            const emptyCells = Array(15).fill().map((_, index) => <Table.Summary.Cell key={index} index={index + 10}/>);
+                            const emptyCells = Array(6).fill().map((_, index) => <Table.Summary.Cell key={index} index={index + 10}/>);
 
                             return (
                                 <>
@@ -1326,7 +1381,9 @@ const Stark = () => {
                                         <Table.Summary.Cell index={7}>{starkUsdcBalance.toFixed(2)}</Table.Summary.Cell>
                                         <Table.Summary.Cell index={8}>{starkUsdtBalance.toFixed(2)}</Table.Summary.Cell>
                                         <Table.Summary.Cell index={9}>{starkDaiBalance.toFixed(2)}</Table.Summary.Cell>
+                                        <Table.Summary.Cell index={10}>{starkStrkBalance.toFixed(1)}</Table.Summary.Cell>
                                         {emptyCells}
+                                        <Table.Summary.Cell index={11}>{totalStarkAirdrop.toFixed(0)}</Table.Summary.Cell>
                                     </Table.Summary.Row>
                                 </>
                             )

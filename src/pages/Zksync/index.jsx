@@ -131,6 +131,7 @@ function Zksync() {
                     "ETHTx": null,
                     "zkSyncLiteMinTx": null,
                     "zkSyncEraMinTx": null,
+                    "zkSyncEraValue": null,
                     "dayMin": null,
                     "weekMin": null,
                     "monthMin": null,
@@ -773,6 +774,7 @@ function Zksync() {
                     dataIndex: "eth_balance",
                     key: "eth_balance",
                     align: "center",
+                    sorter: (a, b) => a.eth_balance - b.eth_balance,
                     render: (text, record) => (text === null ? <Spin/> : text),
                     width: 60
                 },
@@ -894,7 +896,7 @@ function Zksync() {
                       
                         return (
                           <a
-                            href={"https://explorer.zksync.io/address/" + record.address}
+                            href={"https://era.zksync.network/address/" + record.address}
                             target={"_blank"}
                             style={{ color: textColor }}
                           >
@@ -1108,6 +1110,7 @@ function Zksync() {
             "ETHTx": "eth_tx_amount",
             "zkSyncLiteMinTx": "zks1_tx_amount",
             "zkSyncEraMinTx": "zks2_tx_amount",
+            "zkSyncEraValue": "zks2_balance",
             "L1ToL2Tx": "l1Tol2Times",
             "L2ToL1Tx": "l2Tol1Times",
             "L1ToL2ETH": "l1Tol2Amount",
@@ -1184,6 +1187,8 @@ function Zksync() {
                                               addonAfter="个"/>
                                     <FormItem name="zkSyncEraMinTx" addonBefore="zkSyncEra Tx数量 ≥ "
                                               addonAfter="个"/>
+                                    <FormItem name="zkSyncEraValue" addonBefore="zkSyncEra 余额 ≥ "
+                                              addonAfter="ETH"/>
                                     <FormItem name="dayMin" addonBefore="日活跃数 ≥ " addonAfter="天"/>
                                     <FormItem name="weekMin" addonBefore="周活跃数 ≥ " addonAfter="周"/>
                                     <FormItem name="monthMin" addonBefore="月活跃数 ≥ " addonAfter="月"/>

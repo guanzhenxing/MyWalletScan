@@ -4,6 +4,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {GithubOutlined, TwitterOutlined, CaretDownOutlined} from "@ant-design/icons";
 import './index.css'
 import {getEthPrice} from "@utils";
+import price from "@utils/price.js";
 
 const EthPrice = () => {
     const [ethUsdPrice, setEthPrice] = useState(null);
@@ -19,6 +20,7 @@ const EthPrice = () => {
     if (ethUsdPrice === null) {
         return <div>Loading ETH Price...</div>;
     }
+    price.ETH = ethUsdPrice;
     return <div>ETH Price: ${ethUsdPrice}</div>
 }
 const MenuHeader = () => {
@@ -42,20 +44,6 @@ const MenuHeader = () => {
                 {
                     label: 'zkRank',
                     key: 'zkRank',
-                },
-            ],
-        },
-        {
-            label: <span>Stark <CaretDownOutlined /></span>,
-            key: 'starknet',
-            children: [
-                {
-                    label: 'Stark',
-                    key: 'stark',
-                },
-                {
-                    label: 'StarkTasks',
-                    key: 'starkTasks',
                 },
             ],
         },
@@ -99,7 +87,6 @@ const MenuHeader = () => {
             label: 'Deposit',
             key: 'deposit',
         },
-
         {
             label: <span>Defi看板 <CaretDownOutlined /></span>,
             key: 'Dashboards',

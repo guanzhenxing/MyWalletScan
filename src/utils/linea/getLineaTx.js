@@ -37,16 +37,15 @@ function getZkSyncLastTX(lastTxDatetime) {
 
 const getEthPrice = async () => {
     try {
-        const response = await axios.post('https://mainnet.era.zksync.io/', {
-            id: 42,
-            jsonrpc: '2.0',
-            method: 'zks_getTokenPrice',
-            params: ['0x0000000000000000000000000000000000000000'],
-        });
-        return response.data.result
+        const options = {
+            method: 'GET',
+            url: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
+        }
+        let response = await axios.request(options)
+        return response.data['USD']
     } catch (e) {
         console.log(e)
-        return 1870
+        return "/"
     }
 
 }
@@ -71,7 +70,8 @@ async function getLineaTx(address, apiKey) {
             months.add(getMonthNumber(item));
         });
         const fee = transactions.reduce((acc, item) => acc + parseFloat(item.gasPrice) * parseFloat(item.gasUsed), 0);
-        const feeEth = ethers.formatEther(fee);
+        // debugger
+        const feeEth = fee / 10 ** 18;
         const exchangeAmount = transactions.reduce((acc, item) => acc + parseFloat(ethers.formatEther(item.value)), 0);
         const ethPrice = await getEthPrice();
         const toytalExchangeAmount = exchangeAmount * ethPrice;
