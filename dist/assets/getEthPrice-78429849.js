@@ -1,1 +1,0 @@
-import{a as t}from"./axios-057734f1.js";const o=async()=>{try{const e={method:"GET",url:"https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=USD"};return(await t.request(e)).data.ethereum.usd}catch(e){return console.log(e),"/"}};export{o as g};
