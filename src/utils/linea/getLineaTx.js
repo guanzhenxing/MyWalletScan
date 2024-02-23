@@ -24,6 +24,11 @@ function getZkSyncLastTX(lastTxDatetime) {
     const now = new Date();
     const utc8Now = new Date(now.getTime() + offset * 3600 * 1000);
     const diff = utc8Now - utc8Date;
+
+    if(diff === NaN){
+        return "无交易"
+    }
+
     const diffInHours = Math.floor(diff / (1000 * 60 * 60));
     const diffInDays = Math.floor(diffInHours / 24);
     if (diffInDays > 0) {
