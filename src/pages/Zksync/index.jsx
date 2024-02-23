@@ -883,7 +883,28 @@ function Zksync() {
                     dataIndex: "zks2_last_tx",
                     key: "zks2_last_tx",
                     align: "center",
-                    sorter: (a, b) => a.zks2_last_tx - b.zks2_last_tx,
+                    sorter: (a, b) => {
+                        const parseTimeString = (str) => {
+                            if (str === "无交易") {
+                              return -1; // 将"无交易"设置为最小值
+                            } else if (str === "刚刚") {
+                              return 0; // 将"刚刚"设置为较小值
+                            } else if (str.includes("小时前")) {
+                              const hours = parseInt(str); // 解析小时数
+                              return hours;
+                            } else if (str.includes("天前")) {
+                              const days = parseInt(str); // 解析天数
+                              return days * 24; // 将天数转换为小时数
+                            } else {
+                              return Number.MAX_VALUE; // 未知格式，将其设置为最大值
+                            }
+                          };
+                        
+                          const timeA = parseTimeString(a);
+                          const timeB = parseTimeString(b);
+                        
+                          return timeA - timeB;
+                    },
                     render: (text, record) => {
                         let textColor = "inherit";
                       
