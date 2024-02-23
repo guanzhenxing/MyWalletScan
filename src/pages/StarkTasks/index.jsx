@@ -389,6 +389,28 @@ function StarkTasks() {
             dataIndex: "stark_latest_tx_time",
             key: "stark_latest_tx_time",
             align: "center",
+            sorter: (a, b) => {
+                const parseTimeString = (str) => {
+                    if (str.includes("无交易")) {
+                      return -1; // 将"无交易"设置为最小值
+                    } else if (str.includes("刚刚")) {
+                      return 0; // 将"刚刚"设置为较小值
+                    } else if (str.includes("小时")) {
+                      const hours = parseInt(str); // 解析小时数
+                      return hours;
+                    } else if (str.includes("天")) {
+                      const days = parseInt(str); // 解析天数
+                      return days * 24; // 将天数转换为小时数
+                    } else {
+                      return Number.MIN_VALUE; // 未知格式，将其设置为最小值
+                    }
+                  };
+                
+                  const timeA = parseTimeString(a.stark_latest_tx_time);
+                  const timeB = parseTimeString(b.stark_latest_tx_time);
+                
+                  return timeA - timeB;
+            },
             render: (text, record) => {
                 let textColor = "inherit";
               
