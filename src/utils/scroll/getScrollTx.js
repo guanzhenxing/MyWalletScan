@@ -24,6 +24,13 @@ function getScrollLastTX(lastTxDatetime) {
     const now = new Date();
     const utc8Now = new Date(now.getTime() + offset * 3600 * 1000);
     const diff = utc8Now - utc8Date;
+
+    console.log('>>>===============');
+    console.log(date);
+    console.log(utc8Now);
+    console.log(utc8Date);
+    console.log(diff);
+
     const diffInHours = Math.floor(diff / (1000 * 60 * 60));
     const diffInDays = Math.floor(diffInHours / 24);
     if (diffInDays > 0) {
