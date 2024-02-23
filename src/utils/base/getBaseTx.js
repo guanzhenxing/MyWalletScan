@@ -18,16 +18,17 @@ function getMonthNumber(d) {
 }
 
 function getZkSyncLastTX(lastTxDatetime) {
+
+    if(lastTxDatetime == undefined){
+        return "无交易"
+    }
+
     const date = new Date(lastTxDatetime);
     const offset = 8;
     const utc8Date = new Date(date.getTime() + offset * 3600 * 1000);
     const now = new Date();
     const utc8Now = new Date(now.getTime() + offset * 3600 * 1000);
     const diff = utc8Now - utc8Date;
-
-    if(diff === NaN){
-        return "无交易"
-    }
 
     const diffInHours = Math.floor(diff / (1000 * 60 * 60));
     const diffInDays = Math.floor(diffInHours / 24);
