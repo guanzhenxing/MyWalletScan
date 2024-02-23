@@ -63,7 +63,12 @@ async function getScrollTx(address) {
         let contractAddresses = transactions.map(item => item.to);
         contractAddresses = [...new Set(contractAddresses)];
         let receivedAtes = transactions.map(item => new Date(item.timeStamp * 1000));
+
+        console.log(transactions);
+        console.log(receivedAtes);
         const lastTxDatetime = receivedAtes[receivedAtes.length - 1];
+        console.log(lastTxDatetime)
+
         receivedAtes.forEach(item => {
             days.add(getDayNumber(item));
             weeks.add(getWeekNumber(item));

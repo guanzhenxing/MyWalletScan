@@ -883,6 +883,7 @@ function Zksync() {
                     dataIndex: "zks2_last_tx",
                     key: "zks2_last_tx",
                     align: "center",
+                    sorter: (a, b) => a.zks2_last_tx - b.zks2_last_tx,
                     render: (text, record) => {
                         let textColor = "inherit";
                       
